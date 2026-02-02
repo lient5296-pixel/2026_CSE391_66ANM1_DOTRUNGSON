@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>HR Management</title>
-
 <style>
 body{
     margin:0;
@@ -11,39 +10,33 @@ body{
     background:#f2f2f2;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header{
     background:#2c3e50;
-    color:white;
+    color:#fff;
     padding:15px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
-.header-left{
-    display:flex;
-    align-items:center;
-}
-.header-left h1{
+.header h1{
     margin:0;
     font-size:28px;
-    margin-right:30px;
 }
-.header-left a{
+.header a{
     color:white;
-    margin-right:15px;
+    margin-left:20px;
     text-decoration:none;
 }
-.header-right input{
+.header input{
     padding:6px;
 }
 
-/* ===== CONTENT ===== */
+/* CONTENT */
 .container{
-    background:white;
+    background:#fff;
     margin:25px;
     padding:20px;
-    border-radius:4px;
 }
 .top{
     display:flex;
@@ -55,10 +48,9 @@ body{
     color:white;
     border:none;
     padding:10px 16px;
-    border-radius:4px;
 }
 
-/* ===== TABLE ===== */
+/* TABLE */
 table{
     width:100%;
     border-collapse:collapse;
@@ -66,7 +58,7 @@ table{
 }
 th,td{
     border:1px solid #ccc;
-    padding:10px;
+    padding:8px;
     text-align:center;
 }
 th{
@@ -75,20 +67,20 @@ th{
 .edit{
     background:#f1c40f;
     border:none;
-    padding:6px 10px;
+    padding:5px 8px;
 }
 .delete{
     background:#e74c3c;
     color:white;
     border:none;
-    padding:6px 10px;
+    padding:5px 8px;
 }
 
-/* ===== FORM ===== */
+/* FORM */
 .form{
-    width:550px;
-    background:white;
+    width:560px;
     margin:30px auto;
+    background:white;
     border:1px solid #ccc;
 }
 .form-title{
@@ -104,10 +96,7 @@ th{
 .form-body select{
     width:100%;
     padding:8px;
-    margin-bottom:12px;
-}
-.sex{
-    margin-top:10px;
+    margin-bottom:10px;
 }
 .form-footer{
     text-align:right;
@@ -131,12 +120,12 @@ th{
 <body>
 
 <div class="header">
-    <div class="header-left">
+    <div>
         <h1>HR Management</h1>
         <a href="#">Home</a>
         <a href="#">Contact</a>
     </div>
-    <div class="header-right">
+    <div>
         <input placeholder="Search...">
         <button>Search</button>
     </div>
@@ -150,17 +139,68 @@ th{
 
     <table>
         <tr>
-            <th>ID</th><th>Name</th><th>Email</th>
-            <th>Phone</th><th>Position</th><th>Action</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Position</th>
+            <th>Action</th>
         </tr>
+
         <tr>
-            <td>1</td><td>Fatima Beatriz</td><td>fatima@gmail.com</td>
-            <td>0985674321</td><td>Staff</td>
+            <td>1</td>
+            <td>Fatima Beatriz</td>
+            <td>fatima@gmail.com</td>
+            <td>0985674321</td>
+            <td>Female</td>
+            <td>HR</td>
+            <td>Staff</td>
             <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
         </tr>
+
         <tr>
-            <td>2</td><td>Gabriel Hanna</td><td>gabriel@gmail.com</td>
-            <td>035674231</td><td>Staff</td>
+            <td>2</td>
+            <td>Gabriel Hanna</td>
+            <td>gabriel@gmail.com</td>
+            <td>035674231</td>
+            <td>Male</td>
+            <td>IT</td>
+            <td>Staff</td>
+            <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Charles Diya</td>
+            <td>charles@gmail.com</td>
+            <td>0347658833</td>
+            <td>Male</td>
+            <td>Finance</td>
+            <td>Staff</td>
+            <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>Maria Lopez</td>
+            <td>maria@gmail.com</td>
+            <td>0976543210</td>
+            <td>Female</td>
+            <td>HR</td>
+            <td>Manager</td>
+            <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td>John Smith</td>
+            <td>john@gmail.com</td>
+            <td>0912345678</td>
+            <td>Male</td>
+            <td>IT</td>
+            <td>Staff</td>
             <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
         </tr>
     </table>
@@ -173,15 +213,21 @@ th{
         <input placeholder="Email">
         <input placeholder="Phone">
         <select>
+            <option>Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+        <select>
+            <option>Select Department</option>
+            <option>HR</option>
+            <option>IT</option>
+            <option>Finance</option>
+        </select>
+        <select>
             <option>Select Position</option>
             <option>Staff</option>
             <option>Manager</option>
-            <option>CEO</option>
         </select>
-        <div class="sex">
-            <label><input type="radio" name="s"> Male</label>
-            <label><input type="radio" name="s"> Female</label>
-        </div>
     </div>
     <div class="form-footer">
         <button class="save">Save</button>
