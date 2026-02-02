@@ -14,26 +14,38 @@
         .navbar {
             background: #2c3e50;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 26px;   /* 🔥 HR TO */
+            font-weight: bold;
+            margin-right: 25px;
         }
 
         .navbar a {
             color: white;
             margin-right: 15px;
             text-decoration: none;
+            font-size: 16px;
         }
 
         .navbar input {
-            padding: 5px;
+            padding: 6px;
         }
 
         /* CONTENT */
         .container {
             background: white;
-            margin: 20px;
+            margin: 25px;
             padding: 20px;
             border-radius: 4px;
         }
@@ -48,9 +60,10 @@
             background: #3498db;
             color: white;
             border: none;
-            padding: 8px 12px;
+            padding: 10px 16px;
             cursor: pointer;
             border-radius: 4px;
+            font-size: 15px;
         }
 
         /* TABLE */
@@ -62,7 +75,7 @@
 
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
             text-align: center;
         }
 
@@ -73,7 +86,7 @@
         .edit {
             background: #f1c40f;
             border: none;
-            padding: 5px 8px;
+            padding: 6px 10px;
             cursor: pointer;
         }
 
@@ -81,15 +94,15 @@
             background: #e74c3c;
             color: white;
             border: none;
-            padding: 5px 8px;
+            padding: 6px 10px;
             cursor: pointer;
         }
 
         /* FORM */
         .form-box {
-            width: 350px;
+            width: 520px;              /* 🔥 FORM TO */
             background: white;
-            margin: 20px auto;
+            margin: 30px auto;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
@@ -97,37 +110,50 @@
         .form-header {
             background: #3498db;
             color: white;
-            padding: 10px;
+            padding: 14px;
+            font-size: 18px;
+            font-weight: bold;
         }
 
         .form-body {
-            padding: 15px;
+            padding: 20px;
         }
 
         .form-body input,
         .form-body select {
             width: 100%;
-            margin-bottom: 10px;
-            padding: 6px;
+            margin-bottom: 12px;
+            padding: 8px;
+            font-size: 15px;
+        }
+
+        .radio-group {
+            margin-top: 10px;
+        }
+
+        .radio-group label {
+            margin-right: 20px;
         }
 
         .form-footer {
             text-align: right;
-            padding: 10px;
+            padding: 15px;
         }
 
         .save {
             background: #27ae60;
             color: white;
             border: none;
-            padding: 6px 10px;
+            padding: 8px 14px;
+            font-size: 14px;
         }
 
         .cancel {
             background: #7f8c8d;
             color: white;
             border: none;
-            padding: 6px 10px;
+            padding: 8px 14px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -135,8 +161,8 @@
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div>
-        <strong>HR Management</strong>
+    <div class="left">
+        <div class="logo">HR Management</div>
         <a href="#">Home</a>
         <a href="#">Contact</a>
     </div>
@@ -149,7 +175,7 @@
 <!-- TABLE -->
 <div class="container">
     <div class="header">
-        <h3>Employee</h3>
+        <h2>Employee</h2>
         <button class="add-btn">+ Add</button>
     </div>
 
@@ -184,17 +210,6 @@
                 <button class="delete">Delete</button>
             </td>
         </tr>
-        <tr>
-            <td>3</td>
-            <td>Charles Diya</td>
-            <td>charles@gmail.com</td>
-            <td>0347658833</td>
-            <td>Staff</td>
-            <td>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-            </td>
-        </tr>
     </table>
 </div>
 
@@ -213,8 +228,10 @@
             <option>CEO</option>
         </select>
 
-        <label><input type="radio" name="sex"> Male</label>
-        <label><input type="radio" name="sex"> Female</label>
+        <div class="radio-group">
+            <label><input type="radio" name="sex"> Male</label>
+            <label><input type="radio" name="sex"> Female</label>
+        </div>
     </div>
     <div class="form-footer">
         <button class="save">Save</button>
