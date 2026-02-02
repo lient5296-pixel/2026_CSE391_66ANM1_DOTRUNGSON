@@ -1,236 +1,186 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>HR Management</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<title>HR Management</title>
 
-        /* NAVBAR */
-        .navbar {
-            background: #2c3e50;
-            color: white;
-            padding: 15px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
 
-        .navbar .left {
-            display: flex;
-            align-items: center;
-        }
+/* ===== HEADER ===== */
+.header{
+    background:#2c3e50;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.header-left{
+    display:flex;
+    align-items:center;
+}
+.header-left h1{
+    margin:0;
+    font-size:28px;
+    margin-right:30px;
+}
+.header-left a{
+    color:white;
+    margin-right:15px;
+    text-decoration:none;
+}
+.header-right input{
+    padding:6px;
+}
 
-        .navbar .logo {
-            font-size: 26px;   /* 🔥 HR TO */
-            font-weight: bold;
-            margin-right: 25px;
-        }
+/* ===== CONTENT ===== */
+.container{
+    background:white;
+    margin:25px;
+    padding:20px;
+    border-radius:4px;
+}
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.add{
+    background:#3498db;
+    color:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:4px;
+}
 
-        .navbar a {
-            color: white;
-            margin-right: 15px;
-            text-decoration: none;
-            font-size: 16px;
-        }
+/* ===== TABLE ===== */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+th{
+    background:#f4f4f4;
+}
+.edit{
+    background:#f1c40f;
+    border:none;
+    padding:6px 10px;
+}
+.delete{
+    background:#e74c3c;
+    color:white;
+    border:none;
+    padding:6px 10px;
+}
 
-        .navbar input {
-            padding: 6px;
-        }
-
-        /* CONTENT */
-        .container {
-            background: white;
-            margin: 25px;
-            padding: 20px;
-            border-radius: 4px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .add-btn {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 15px;
-        }
-
-        /* TABLE */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background: #f4f4f4;
-        }
-
-        .edit {
-            background: #f1c40f;
-            border: none;
-            padding: 6px 10px;
-            cursor: pointer;
-        }
-
-        .delete {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 6px 10px;
-            cursor: pointer;
-        }
-
-        /* FORM */
-        .form-box {
-            width: 520px;              /* 🔥 FORM TO */
-            background: white;
-            margin: 30px auto;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .form-header {
-            background: #3498db;
-            color: white;
-            padding: 14px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .form-body {
-            padding: 20px;
-        }
-
-        .form-body input,
-        .form-body select {
-            width: 100%;
-            margin-bottom: 12px;
-            padding: 8px;
-            font-size: 15px;
-        }
-
-        .radio-group {
-            margin-top: 10px;
-        }
-
-        .radio-group label {
-            margin-right: 20px;
-        }
-
-        .form-footer {
-            text-align: right;
-            padding: 15px;
-        }
-
-        .save {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            font-size: 14px;
-        }
-
-        .cancel {
-            background: #7f8c8d;
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            font-size: 14px;
-        }
-    </style>
+/* ===== FORM ===== */
+.form{
+    width:550px;
+    background:white;
+    margin:30px auto;
+    border:1px solid #ccc;
+}
+.form-title{
+    background:#3498db;
+    color:white;
+    padding:14px;
+    font-size:18px;
+}
+.form-body{
+    padding:20px;
+}
+.form-body input,
+.form-body select{
+    width:100%;
+    padding:8px;
+    margin-bottom:12px;
+}
+.sex{
+    margin-top:10px;
+}
+.form-footer{
+    text-align:right;
+    padding:15px;
+}
+.save{
+    background:#27ae60;
+    color:white;
+    border:none;
+    padding:8px 14px;
+}
+.cancel{
+    background:#7f8c8d;
+    color:white;
+    border:none;
+    padding:8px 14px;
+}
+</style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="left">
-        <div class="logo">HR Management</div>
+<div class="header">
+    <div class="header-left">
+        <h1>HR Management</h1>
         <a href="#">Home</a>
         <a href="#">Contact</a>
     </div>
-    <div>
-        <input type="text" placeholder="Search...">
+    <div class="header-right">
+        <input placeholder="Search...">
         <button>Search</button>
     </div>
 </div>
 
-<!-- TABLE -->
 <div class="container">
-    <div class="header">
+    <div class="top">
         <h2>Employee</h2>
-        <button class="add-btn">+ Add</button>
+        <button class="add">+ Add</button>
     </div>
 
     <table>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Position</th>
-            <th>Action</th>
+            <th>ID</th><th>Name</th><th>Email</th>
+            <th>Phone</th><th>Position</th><th>Action</th>
         </tr>
         <tr>
-            <td>1</td>
-            <td>Fatima Beatriz</td>
-            <td>fatima@gmail.com</td>
-            <td>0985674321</td>
-            <td>Staff</td>
-            <td>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-            </td>
+            <td>1</td><td>Fatima Beatriz</td><td>fatima@gmail.com</td>
+            <td>0985674321</td><td>Staff</td>
+            <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
         </tr>
         <tr>
-            <td>2</td>
-            <td>Gabriel Hanna</td>
-            <td>gabriel@gmail.com</td>
-            <td>035674231</td>
-            <td>Staff</td>
-            <td>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-            </td>
+            <td>2</td><td>Gabriel Hanna</td><td>gabriel@gmail.com</td>
+            <td>035674231</td><td>Staff</td>
+            <td><button class="edit">Edit</button> <button class="delete">Delete</button></td>
         </tr>
     </table>
 </div>
 
-<!-- FORM -->
-<div class="form-box">
-    <div class="form-header">New Employee</div>
+<div class="form">
+    <div class="form-title">New Employee</div>
     <div class="form-body">
-        <input type="text" placeholder="Name">
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="Phone">
-
+        <input placeholder="Name">
+        <input placeholder="Email">
+        <input placeholder="Phone">
         <select>
             <option>Select Position</option>
             <option>Staff</option>
             <option>Manager</option>
             <option>CEO</option>
         </select>
-
-        <div class="radio-group">
-            <label><input type="radio" name="sex"> Male</label>
-            <label><input type="radio" name="sex"> Female</label>
+        <div class="sex">
+            <label><input type="radio" name="s"> Male</label>
+            <label><input type="radio" name="s"> Female</label>
         </div>
     </div>
     <div class="form-footer">
