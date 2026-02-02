@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>HR Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        .navbar input {
+            padding: 5px;
+        }
+
+        /* CONTENT */
+        .container {
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .add-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background: #f4f4f4;
+        }
+
+        .edit {
+            background: #f1c40f;
+            border: none;
+            padding: 5px 8px;
+            cursor: pointer;
+        }
+
+        .delete {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 8px;
+            cursor: pointer;
+        }
+
+        /* FORM */
+        .form-box {
+            width: 350px;
+            background: white;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-header {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+        }
+
+        .form-body {
+            padding: 15px;
+        }
+
+        .form-body input,
+        .form-body select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 6px;
+        }
+
+        .form-footer {
+            text-align: right;
+            padding: 10px;
+        }
+
+        .save {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+        }
+
+        .cancel {
+            background: #7f8c8d;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div>
+        <strong>HR Management</strong>
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+    </div>
+    <div>
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </div>
+</div>
+
+<!-- TABLE -->
+<div class="container">
+    <div class="header">
+        <h3>Employee</h3>
+        <button class="add-btn">+ Add</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Position</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Fatima Beatriz</td>
+            <td>fatima@gmail.com</td>
+            <td>0985674321</td>
+            <td>Staff</td>
+            <td>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Gabriel Hanna</td>
+            <td>gabriel@gmail.com</td>
+            <td>035674231</td>
+            <td>Staff</td>
+            <td>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Charles Diya</td>
+            <td>charles@gmail.com</td>
+            <td>0347658833</td>
+            <td>Staff</td>
+            <td>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- FORM -->
+<div class="form-box">
+    <div class="form-header">New Employee</div>
+    <div class="form-body">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="Phone">
+
+        <select>
+            <option>Select Position</option>
+            <option>Staff</option>
+            <option>Manager</option>
+            <option>CEO</option>
+        </select>
+
+        <label><input type="radio" name="sex"> Male</label>
+        <label><input type="radio" name="sex"> Female</label>
+    </div>
+    <div class="form-footer">
+        <button class="save">Save</button>
+        <button class="cancel">Cancel</button>
+    </div>
+</div>
+
+</body>
+</html>
