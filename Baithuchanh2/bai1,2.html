@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Bộ Lọc Sinh Viên</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    margin:40px;
+}
+
+input,select{
+    padding:6px;
+    margin-right:10px;
+}
+
+button{
+    padding:6px 10px;
+}
+
+table{
+    margin-top:20px;
+    border-collapse: collapse;
+    width:700px;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:center;
+}
+
+th{
+    background:#f2f2f2;
+    cursor:pointer;
+}
+
+.low{
+    background:yellow;
+}
+
+#stats{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+#noResult{
+    margin-top:10px;
+    color:red;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Quản lý điểm sinh viên</h2>
+
+<input type="text" id="name" placeholder="Họ tên">
+<input type="number" id="score" placeholder="Điểm (0-10)">
+<button id="addBtn">Thêm</button>
+
+<br><br>
+
+<input type="text" id="search" placeholder="Tìm kiếm tên...">
+
+<select id="filterRank">
+<option value="all">Tất cả</option>
+<option value="Giỏi">Giỏi</option>
+<option value="Khá">Khá</option>
+<option value="Trung bình">Trung bình</option>
+<option value="Yếu">Yếu</option>
+</select>
+
+<table>
+
+<thead>
+<tr>
+<th>STT</th>
+<th>Họ tên</th>
+<th id="sortScore">Điểm</th>
+<th>Xếp loại</th>
+<th>Thao tác</th>
+</tr>
+</thead>
+
+<tbody id="tbody"></tbody>
+
+</table>
+
+<div id="noResult"></div>
+<div id="stats"></div>
+
+<script>
+
+let students = []
+let filteredStudents = []
+
+let sortAsc = true
+
+function getRank(score){
+
+    if(score >= 8.5) return "Giỏi"
+    if(score >= 7) return "Khá"
+    if(score >= 5) return "Trung bình"
+    return "Yếu"
+}
+
+function applyFilters(){
+
+    const keyword = document.getElementById("search").value.toLowerCase()
+    const rankFilter = document.getElementById("filterRank").value
+
+    filteredStudents = students.filter(sv=>{
+
+        const matchName = sv.name.toLowerCase().includes(keyword)
+        const rank = getRank(sv.score)
+
+        const matchRank = rankFilter === "all" || rank === rankFilter
+
+        return matchName && matchRank
+    })
+
+    filteredStudents.sort((a,b)=>{
+
+        if(sortAsc){
+            return a.score - b.score
+        }else{
+            return b.score - a.score
+        }
+
+    })
+
+    renderTable()
+}
+
+function renderTable(){
+
+    const tbody = document.getElementById("tbody")
+    const noResult = document.getElementById("noResult")
+
+    tbody.innerHTML = ""
+
+    if(filteredStudents.length === 0){
+
+        noResult.innerText = "Không có kết quả"
+        document.getElementById("stats").innerText = ""
+        return
+
+    }else{
+
+        noResult.innerText = ""
+    }
+
+    let total = 0
+
+    filteredStudents.forEach((sv,index)=>{
+
+        total += sv.score
+
+        const tr = document.createElement("tr")
+
+        if(sv.score < 5){
+            tr.classList.add("low")
+        }
+
+        tr.innerHTML = `
+        <td>${index+1}</td>
+        <td>${sv.name}</td>
+        <td>${sv.score}</td>
+        <td>${getRank(sv.score)}</td>
+        <td>
+        <button data-index="${students.indexOf(sv)}" class="deleteBtn">Xóa</button>
+        </td>
+        `
+
+        tbody.appendChild(tr)
+
+    })
+
+    const avg = (total / filteredStudents.length).toFixed(2)
+
+    document.getElementById("stats").innerText =
+    "Tổng: "+filteredStudents.length+" | Điểm TB: "+avg
+
+}
+
+function addStudent(){
+
+    const nameInput = document.getElementById("name")
+    const scoreInput = document.getElementById("score")
+
+    const name = nameInput.value.trim()
+    const score = parseFloat(scoreInput.value)
+
+    if(name === ""){
+        alert("Họ tên không được trống")
+        return
+    }
+
+    if(isNaN(score) || score < 0 || score > 10){
+        alert("Điểm phải từ 0-10")
+        return
+    }
+
+    students.push({name,score})
+
+    nameInput.value = ""
+    scoreInput.value = ""
+    nameInput.focus()
+
+    applyFilters()
+}
+
+document.getElementById("addBtn").addEventListener("click",addStudent)
+
+document.getElementById("score").addEventListener("keydown",function(e){
+
+    if(e.key === "Enter"){
+        addStudent()
+    }
+
+})
+
+document.getElementById("search").addEventListener("input",applyFilters)
+
+document.getElementById("filterRank").addEventListener("change",applyFilters)
+
+document.getElementById("sortScore").addEventListener("click",function(){
+
+    sortAsc = !sortAsc
+
+    this.innerText = sortAsc ? "Điểm ▲" : "Điểm ▼"
+
+    applyFilters()
+
+})
+
+document.getElementById("tbody").addEventListener("click",function(e){
+
+    if(e.target.classList.contains("deleteBtn")){
+
+        const index = e.target.dataset.index
+
+        students.splice(index,1)
+
+        applyFilters()
+
+    }
+
+})
+
+applyFilters()
+
+</script>
+
+</body>
+</html>
